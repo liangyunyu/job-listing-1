@@ -74,3 +74,64 @@
   box-shadow: 3px 3px 0px transparent;
   transition: 0.5s;
 }
+
+// 导航栏：给导航栏替换不同的颜色
+.navbar-default {
+  background-color: #212121;  //背景颜色
+  border-color: #212121; //边框色
+  margin-bottom: 0; //底部 margin 不撑开距离
+}
+
+// 导航栏：去掉导航栏的圆角
+@media (min-width: 768px) {
+ .navbar {
+   border-radius: 0; //圆角为0
+ }
+}
+
+// 导航栏：修改 Logo 字体颜色和对齐样式
+.navbar-default .navbar-brand {
+ color: #EF6C00; //字体颜色
+ padding: 10px 15px; //上下10px，左右15px
+ line-height: 30px; //文字行高
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+ color: #FF6F00; //鼠标放置在链接上的文字颜色
+ background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
+}
+
+// 修改导航栏链接颜色
+.navbar-default .navbar-nav > li > a {
+ color: #EF6C00;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+ color: #FF6F00;
+ background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+ color: #FF6F00;
+ background-color: #FFE0B2;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
+ background-color: #FFE0B2;
+ color: #212121;
+}
+
+// logo图片的样式定义
+.navbar-brand > img {
+  display: inline-block; //图片和链接文字显示在同一行
+  margin-left: 10px; //my define
+  margin-right: 10px; //图片和链接文字拉开一点距离
+  width: 32px; //定制图片宽度
+  height: 32px; //定制图片高度
+}

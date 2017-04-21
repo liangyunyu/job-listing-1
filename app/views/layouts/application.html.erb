@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>真·24K Offer<</title>
+    <title>自由工作网</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="shortcut icon" href="/images/favicon.ico">
@@ -9,14 +9,20 @@
   </head>
 
   <body>
+    <%= render "common/flashes" %>
+
     <div class="row">
       <%= render "common/navbar" %>
     </div>
 
     <div class="container-fluid">
-      <%= render "common/flashes" %>
-      <%= yield %>
+      <div class="row">
+        <%= yield %>
+      </div>
     </div>
+
     <%= render "common/footer" %>
+
   </body>
+  
 </html>

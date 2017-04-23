@@ -18,94 +18,181 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-@import url(http://fonts.googleapis.com/css?family=Roboto);
 
+//Footer always on the bottom
 html {
   position: relative;
-  min-height: 100%;
+  min-height: 100%;//拉高
 }
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 100px;
+  margin-bottom: 150px;//与footer.height对应
+}
+
+body {
+    font: 400 15px/1.8 Lato, sans-serif;
+    color: #777;
+    font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
+}
+h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;
+    font-size: 20px;
+    color: #111;
+}
+
+//****************************************************************//
+.navbar {
+    // font-family: Montserrat, sans-serif;
+    font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
+    margin-bottom: 0;
+    // background-color: #2d2d30;
+    background-color: #212121;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity: 0.9;
+}
+.navbar-brand > img {
+    display: inline-block; //图片和链接文字显示在同一行
+    margin-right: 10px; //图片和链接文字拉开一点距离
+    width: 24px; //定制图片宽度，默认32
+    height: 24px; //定制图片高度，默认32
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #d5d5d5 !important;
+}
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+.open .dropdown-toggle {
+    color: #fff;
+    background-color: #555 !important;
+}
+.dropdown-menu li a {
+    color: #000 !important;
+}
+.dropdown-menu li a:hover {
+    background-color: #607D8B !important; //鼠标停留在下拉选项的颜色
 }
 
 
+//****************************************************************//
 
+.carousel-inner img {
+    -webkit-filter: grayscale(50%);
+    filter: grayscale(50%); /* make all photos black and white */
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+}
+.carousel-caption h3 {
+    color: #fff !important;
+}
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+  }
+}
+.bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+}
+.bg-1 h3 {color: #fff;}
+.bg-1 p {font-style: italic;}
 
-.jumbotron {
-  background-image:url('http://fullstack-public.oss-cn-qingdao.aliyuncs.com/2017-04-15-542213.png');
-  // background-image:url('http://ww1.sinaimg.cn/large/006tNbRwgy1fesk6dxxwhj30zk0k0qah.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 110px;
+.list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
-// ![](http://ww1.sinaimg.cn/large/006tNbRwgy1fesk6dxxwhj30zk0k0qah.jpg)
+//****************************************************************//
 
-.title {
-  // font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
-  // text-align: center;
-  // margin-top: 200px;
-  // margin-bottom: 80px;
-
-  //修改文字对齐/背景
-  background-color: rgba(250, 250, 250, 0.39);//背景颜色含透明度
-  max-width: 500px;//最大宽度
-  margin-top: 200px;//和顶部拉开距离
-  margin-bottom: 0;//这样就可以紧接息面的描述文字
-  border-top-right-radius: 3px;//右上角圆边
-  border-top-left-radius: 3px;//左上角圆边
+.container {
+    padding: 80px 120px;
 }
 
-.jumbotron h1, .jumbotron .h1 {
-  text-align: left;//文字左对齐
-  color: #222;  //字体颜色
-
-  padding: 50px 20px 0;//上50px，左右20px，下0
+.person {
+    // border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+.person:hover {
+    border-color: #f1f1f1;
 }
 
-.jumbotron p {
-  margin: 0;//上下左右margin为0
-  font-size: 26px;//字体大小
-  max-width: 500px;//最大宽度
-  background-color: rgba(250, 250, 250, 0.39);//背景颜色含透明度
-  padding: 20px;//上下左右padding为20px
-  text-align:left;//文字左对齐
-  color: #222;//字体颜色
+// .form-control {
+//     border-radius: 0;
+// }
 
-  border-bottom-right-radius: 3px;//右下角圆边
-  border-bottom-left-radius: 3px;//左下角圆边
+// textarea {
+//     resize: none;
+// }
 
-}
+// .thumbnail {
+//     padding: 0 0 15px 0;
+//     border: none;
+//     border-radius: 0;
+// }
+// .thumbnail p {
+//     margin-top: 15px;
+//     color: #555;
+// }
+// .btn {
+//     padding: 10px 20px;
+//     background-color: #333;
+//     color: #f1f1f1;
+//     border-radius: 0;
+//     transition: .2s;
+// }
+// .btn:hover, .btn:focus {
+//     border: 1px solid #333;
+//     background-color: #fff;
+//     color: #000;
+// }
+// .modal-header, h4, .close {
+//     background-color: #333;
+//     color: #fff !important;
+//     text-align: center;
+//     font-size: 30px;
+// }
+// .modal-header, .modal-body {
+//     padding: 40px 50px;
+// }
 
-.slogan {
-  margin-top: 10px;
-  margin-bottom: 50px;
-  text-align: center;
-  color: white;
-  top: 12px;
-}
+// .nav-tabs li a {
+//     color: #777;
+// }
 
-.lead {
-  margin-bottom: 60px;
-  text-align: center;
-  color: white;
-}
+// #googleMap {
+//     width: 100%;
+//     height: 400px;
+//     // -webkit-filter: grayscale(100%);
+//     // filter: grayscale(100%);
+// }
 
-.caption {
-  margin: 30px;
-  text-align: center;
-  top: 20px;
-}
+// .form-control {
+//     border-radius: 0;
+// }
 
-.thumbnail {
-  border: 0 none;
-  box-shadow: none;
-  margin-top: 60px;
-}
+// textarea {
+//     resize: none;
+// }
 
-// 表格样式
+//*******************************table*********************************//
 .custab{
   border: 1px solid #ccc;
 
@@ -121,297 +208,27 @@ body {
   transition: 0.5s;
 }
 
-// 导航栏：给导航栏替换不同的颜色
-.navbar-default {
-  background-color: #212121;  //背景颜色
-  border-color: #212121; //边框色
-  margin-bottom: 0; //底部 margin 不撑开距离
-  border-radius: 0;
+
+
+
+//****************************************************************//
+
+footer {
+    // background-color: #2d2d30;
+    background-color: #212121;
+    // color: #f5f5f5;
+    color: #f5f5f5;
+    padding: 32px;
+    //on buttom
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
 }
-
-// 导航栏：去掉导航栏的圆角
-@media (min-width: 768px) {
-  .navbar {
-    border-radius: 0; //圆角为0
-  }
+footer a {
+    color: #f5f5f5;
 }
-
-// 导航栏：修改 Logo 字体颜色和对齐样式
-.navbar-default .navbar-brand {
-  color: #EF6C00; //字体颜色
-  padding: 10px 15px; //上下10px，左右15px
-  line-height: 30px; //文字行高
-}
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #FF6F00; //鼠标放置在链接上的文字颜色
-  background-color: transparent; //鼠标放置在链接上的背景颜色，这里设为透明
-}
-
-// 修改导航栏链接颜色
-.navbar-default .navbar-nav > li > a {
-  color: #EF6C00;
-}
-
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-  color: #FF6F00;
-  background-color: transparent;
-}
-
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
-  color: #FF6F00;
-  background-color: #FFE0B2;
-}
-
-.navbar-default .navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:focus,
-.navbar-default .navbar-nav > .open > a:hover {
-  background-color: #FFE0B2;
-  color: #212121;
-}
-
-
-//---------Video-------
-
-.video-background {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-}
-
-
-
-
-//---------Box---------
-
-.box {
-  background-image: url('http://ww2.sinaimg.cn/large/006tKfTcgy1feuvmg3bejj31kw0w0b2e.jpg');
-  // background-image: image-url("header.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-bottom: 50px;
-
-  .box-inner {
-    background-color: rgba(250, 250, 250, 0.69);
-    padding-bottom: 5px;
-    margin-top: 150px;
-    margin-bottom: 150px;
-  }
-
-  .title {
-    text-align: center;
-    margin-bottom: 80px;
-  }
-
-  .slogan {
-    color: #222;
-    margin-top: 10px;
-    margin-bottom: 50px;
-    text-align: center;
-    font-size: 25px;
-    top: 12px;
-  }
-
-  .lead {
-    margin-bottom: 60px;
-    text-align: center;
-    color: white;
-  }
-
-}
-
-
-//---------Content---------
-
-.content-section-a {
-  padding: 50px 0;
-  background-color: #f8f8f8;
-}
-
-.content-section-b {
-  background-color: #ffffff;
-  padding: 50px 0;
-  border-top: 1px solid #e7e7e7;
-  border-bottom: 1px solid #e7e7e7;
-}
-
-.section-heading-spacer {
-  float: left;
-  width: 200px;
-  border-top: 3px solid #e7e7e7;
-}
-
-.section-heading {
-  margin-bottom: 30px;
-}
-
-.lead {
-  font-size: 18px;
-  font-weight: 400;
-}
-
-
-
-//---------Footer---------
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 100px;
-  background-color: #233140;
-
-  p {
-    color: white;
-    margin-top: 30px;
-  }
-}
-
-footer .footer-below {
-  padding: 25px 0;
-  background-color: #233140;
-}
-
-
-// logo图片的样式定义
-.navbar-brand > img {
-  display: inline-block; //图片和链接文字显示在同一行
-  margin-left: 10px; //my define
-  margin-right: 10px; //图片和链接文字拉开一点距离
-  width: 32px; //定制图片宽度
-  height: 32px; //定制图片高度
-}
-
-// 让大图满屏显示
-.container-fluid .jumbotron{
-  padding-bottom: 110px;//内部的底部边距，这样按钮不会很靠近底部了
-  margin: 0 -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
-  border-radius: 0;//圆角为0
-}
-
-// 修改文字对齐/背景
-.btn-danger {
-  color: #fff;//字体颜色
-  background-color: #EF6C00;//背景颜色
-  border-color: #EF6C00;//边框颜色
-}
-
-.btn-danger:hover {
-  background-color: #E65100;//鼠标放置在btn上的背景颜色
-  border-color: #E65100;//鼠标放置在btn上的边框颜色
-}
-
-// 修改按钮大小
-.btn-lg, .btn-group-lg > .btn {
-  padding: 8px 16px;//通过padding来决定btn的大小
-  font-size: 20px;//btn文字大小
-  letter-spacing: 3px;//调整文字间距
-  border-radius: 3px;//btn圆角
-  width: 200px;//这里用指定宽度把btn拉得更长
-}
-
-// 登录弹窗
-/****** LOGIN MODAL ******/
-.loginmodal-container {
-  padding: 30px;
-  max-width: 350px;
-  width: 100% !important;
-  background-color: #F7F7F7;
-  margin: 0 auto;
-  border-radius: 2px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  font-family: roboto;
-}
-
-.loginmodal-container h1 {
-  text-align: center;
-  font-size: 1.8em;
-  font-family: roboto;
-}
-
-.loginmodal-container input[type=submit] {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.loginmodal-container input[type=text], input[type=password] {
-  height: 44px;
-  font-size: 16px;
-  width: 100%;
-  margin-bottom: 10px;
-  -webkit-appearance: none;
-  background: #fff;
-  border: 1px solid #d9d9d9;
-  border-top: 1px solid #c0c0c0;
-  /* border-radius: 2px; */
-  padding: 0 8px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-.loginmodal-container input[type=text]:hover, input[type=password]:hover {
-  border: 1px solid #b9b9b9;
-  border-top: 1px solid #a0a0a0;
-  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-}
-
-.loginmodal {
-  text-align: center;
-  font-size: 14px;
-  font-family: 'Arial', sans-serif;
-  font-weight: 700;
-  height: 36px;
-  padding: 0 8px;
-  /* border-radius: 3px; */
-  /* -webkit-user-select: none;
-  user-select: none; */
-}
-
-.loginmodal-submit {
-  /* border: 1px solid #3079ed; */
-  border: 0px;
-  color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.1);
-  background-color: #4d90fe;
-  padding: 17px 0px;
-  font-family: roboto;
-  font-size: 14px;
-  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
-}
-
-.loginmodal-submit:hover {
-  /* border: 1px solid #2f5bb7; */
-  border: 0px;
-  text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #357ae8;
-  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
-}
-
-.loginmodal-container a {
-  text-decoration: none;
-  color: #666;
-  font-weight: 400;
-  text-align: center;
-  display: inline-block;
-  opacity: 0.6;
-  transition: opacity ease 0.5s;
-}
-
-.login-help{
-  font-size: 12px;
+footer a:hover {
+    color: #777;
+    text-decoration: none;
 }

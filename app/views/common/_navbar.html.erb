@@ -11,12 +11,22 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
         <li><a href="/">尽情释放你的潜能！</a></li>
-        <li><a href="/jobs">找需求</a></li>
-        <li><a href="/jobs">找帮忙</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li> -->
+        <li><a href="/jobs">找事</a></li>
         <form class="navbar-form navbar-left">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="找需求，找工作">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <li><a href="/jobs">找人</a></li>
+        <form class="navbar-form navbar-left">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="找帮忙，找协助">
             <div class="input-group-btn">
               <button class="btn btn-default" type="submit">
                 <i class="glyphicon glyphicon-search"></i>
@@ -26,17 +36,21 @@
         </form>
       </ul>
 
+
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#contact">联系我们</a></li>
+        <!-- <li><a href="#contact">联系我们</a></li> -->
         <% if !current_user %>
-          <!-- <li><%= link_to("注册", new_user_registration_path) %> </li>
-          <li><%= link_to("登录", new_user_session_path) %></li> -->
-          <li><a href="#" data-toggle="modal" data-target="#signup-modal"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+          <li><%= link_to("注册", new_user_registration_path) %> </li>
+          <li><%= link_to("登录", new_user_session_path) %></li>
+          <!-- <li><a href="#" data-toggle="modal" data-target="#signup-modal"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> -->
         <% else %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Hi!, <%= current_user.email %>
+            <!-- Hi!, <%= current_user.email %> -->
+            <!-- 您好，<%= current_user.username %> -->
+            您好，<%= current_user.display_name %>
+            <img src= "<%= render_user_avatar(current_user, 20) %>">
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
@@ -44,7 +58,8 @@
               <li><%= link_to("管理后台", admin_jobs_path) %></li>
               <li class="divider"></li>
             <% end %>
-              <li><%= link_to("退出", destroy_user_session_path, method: :delete) %></li>
+            <li><%= link_to "个人中心", edit_account_user_path(current_user) %></li>
+            <li><%= link_to("退出", destroy_user_session_path, method: :delete) %></li>
           </ul>
         </li>
         <% end %>
@@ -53,8 +68,8 @@
   </div>
 </nav>
 
-<!-- 以下代码添加在最后 -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<!-- 用户注册登录弹窗，以下代码添加在最后 -->
+<!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog" role="document">
     <div class="loginmodal-container">
       <h2>用户登录</h2>
@@ -70,9 +85,9 @@
       <% end %>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<!-- <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
     <div class="loginmodal-container">
       <h2>用户注册</h2>
@@ -89,4 +104,4 @@
       <% end %>
     </div>
   </div>
-</div>
+</div> -->

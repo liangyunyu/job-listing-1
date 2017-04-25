@@ -12,8 +12,8 @@ class User < ApplicationRecord
   end
 
   def display_name
-    if self.username.present?
-      self.username
+    if self.name.present?
+      self.name
     else
       self.email.split("@").first
     end

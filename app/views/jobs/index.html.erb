@@ -1,4 +1,4 @@
-<h2>招聘信息</h2>
+<h2>任务信息</h2>
 <!-- <div class="pull-right">
   <%= link_to("Add a job", new_job_path, :class => "btn btn-default" ) %>
 </div> -->
@@ -19,17 +19,29 @@
 <table class="table table-boldered">
   <thead>
     <tr>
-      <td>职缺</td>
+      <td>公司/个人</td>
+      <td>工作</td>
+      <td>类型</td>
+      <td>地区</td>
+      <td>工作内容</td>
+      <td>工作要求</td>
       <td>薪资下限</td>
       <td>薪资上限</td>
-      <td>刊登时间</td>
+      <td>联系方式</td>
+      <td>发布时间</td>
     </tr>
   </thead>
 
   <tbody>
     <% @jobs.each do |job| %>
     <tr>
+      <td><%= job.name %></td>
       <td><%= link_to(job.title, job_path(job)) %></td>
+      <td><%= job.category %></td>
+      <td><%= job.location %></td>
+      <td><%= job.content %></td>
+      <td><%= job.description %></td>
+      <td><%= job.contact %></td>
       <td><%= job.wage_lower_bound %></td>
       <td><%= job.wage_upper_bound %></td>
       <td><%= job.created_at %></td>

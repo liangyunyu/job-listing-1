@@ -10,25 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425073258) do
+ActiveRecord::Schema.define(version: 20170425181347) do
 
   create_table "jobs", force: :cascade do |t|
+    t.string   "name"
     t.string   "title"
+    t.string   "content"
     t.text     "description"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "category"
+    t.string   "location"
     t.integer  "wage_upper_bound"
     t.integer  "wage_lower_bound"
+    t.string   "contact"
     t.string   "contact_email"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.boolean  "is_hidden",        default: true
   end
 
   create_table "resumes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "content"
+    t.string   "description"
+    t.string   "category"
+    t.string   "location"
+    t.string   "contact"
     t.integer  "job_id"
     t.integer  "user_id"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "attachment"
   end
 
@@ -46,7 +56,6 @@ ActiveRecord::Schema.define(version: 20170425073258) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
-    t.string   "username"
     t.string   "avatar"
     t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true

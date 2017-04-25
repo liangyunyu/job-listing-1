@@ -13,13 +13,13 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
         <li>
-          <%= link_to("按照薪资下限排序", admin_jobs_path(:order => "by_lower_bound")) %>
+          <%= link_to("按照报酬下限排序", admin_jobs_path(:order => "by_lower_bound")) %>
         </li>
         <li>
-            <%= link_to("按照薪资上限排序", admin_jobs_path(:order => "by_upper_bound")) %>
+            <%= link_to("按照报酬上限排序", admin_jobs_path(:order => "by_upper_bound")) %>
         </li>
         <li>
-          <%= link_to("按照发表时间排序", admin_jobs_path ) %>
+          <%= link_to("按照发布时间排序", admin_jobs_path ) %>
         </li>
     </ul>
 </div>
@@ -28,11 +28,17 @@
 <table class="table table-boldered table-striped custab" >
   <thead>
     <tr>
-      <td>职缺</td>
+      <td>公司/个人</td>
+      <td>工作</td>
+      <td>类型</td>
+      <td>地区</td>
+      <td>工作内容</td>
+      <td>工作要求</td>
       <td>薪资下限</td>
       <td>薪资上限</td>
-      <td>刊登时间</td>
-      <td>收到履历(点击查看)</td>
+      <td>联系方式</td>
+      <td>发布时间</td>
+      <td>收到意向(点击查看)</td>
       <td>管理选项</td>
     </tr>
   </thead>
@@ -40,7 +46,13 @@
   <tbody>
     <% @jobs.each do |job| %>
     <tr>
+      <td><%= job.name %></td>
       <td><%= link_to(job.title, job_path(job)) %></td>
+      <td><%= job.category %></td>
+      <td><%= job.location %></td>
+      <td><%= job.content %></td>
+      <td><%= job.description %></td>
+      <td><%= job.contact %></td>
       <td><%= job.wage_lower_bound %></td>
       <td><%= job.wage_upper_bound %></td>
       <td><%= job.created_at %></td>

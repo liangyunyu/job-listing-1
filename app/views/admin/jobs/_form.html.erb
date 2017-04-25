@@ -1,0 +1,33 @@
+<div class="col-md-10 col-md-offset-1 job-form-content">
+  <hr style="size:2px" />
+  <%= simple_form_for [:admin,@job] do |f| %>
+    <div class="form-group">
+      <%= f.input :name, :label => false, placeholder: '公司/个人名称' %>
+      <%= f.input :title, :label => false, placeholder: '请输入任务' %>
+      <%= f.input :content, :label => false, placeholder: '工作内容' %>
+      <%= f.input :description, :label => false, placeholder: '技能要求' %>
+      <hr />
+      <!-- 类型 -->
+      <% if @job.category? %>
+        <%= f.input :category, :label => "任务类型", :collection => ["技术", "写作", "设计", "摄影", "运营", "市场", "销售", "家政", "其他"], :checked => @job.category, input_html: { class: 'category' } %>
+      <% else %>
+        <%= f.input :category, :label => "任务类型", :collection => ["技术", "写作", "设计", "摄影", "运营", "市场", "销售", "家政", "其他"], input_html: { class: 'category' } %>
+      <% end %>
+      <!-- 地点 -->
+      <% if @job.location? %>
+        <%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外", "远程"], :checked => @job.location, input_html: { class: 'location' } %>
+      <% else %>
+        <%= f.input :location, :label => "工作地点", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外", "远程"], input_html: { class: 'location' } %>
+      <% end %>
+      <%= f.input :wage_lower_bound, :label => '报酬' do %>
+        <%= f.input_field :wage_lower_bound, :as => :string, class: "wage" %> <span class="wage-form"> 至 </span>
+        <%= f.input_field :wage_upper_bound, :as => :string, class: "wage" %> <span class="wage-form"></span>
+      <% end %>
+      <hr />
+      <sapn class="hidden-box"><%= f.input :is_hidden, label: '隐藏职位' %></sapn>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "送出", disable_with: "Submiting...", class: "button"%>
+    </div>
+  <% end %>
+</div>

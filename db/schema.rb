@@ -13,36 +13,37 @@
 ActiveRecord::Schema.define(version: 20170425181347) do
 
   create_table "jobs", force: :cascade do |t|
-    t.string   "name"
     t.string   "title"
-    t.string   "content"
     t.text     "description"
-    t.string   "category"
-    t.string   "location"
-    t.integer  "wage_upper_bound"
-    t.integer  "wage_lower_bound"
-    t.string   "contact"
-    t.string   "contact_email"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.integer  "wage_upper_bound"
+    t.integer  "wage_lower_bound"
+    t.string   "contact_email"
     t.boolean  "is_hidden",        default: true
+    t.string   "name"
+    t.string   "content"
+    t.string   "category"
+    t.string   "location"
+    t.string   "contact"
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "job_id"
+    t.integer  "user_id"
     t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "attachment"
+    t.string   "name"
     t.string   "description"
     t.string   "category"
     t.string   "location"
     t.string   "contact"
-    t.integer  "job_id"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "attachment"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "name"
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -57,7 +58,6 @@ ActiveRecord::Schema.define(version: 20170425181347) do
     t.datetime "updated_at",                             null: false
     t.boolean  "is_admin",               default: false
     t.string   "avatar"
-    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

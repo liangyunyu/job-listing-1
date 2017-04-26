@@ -1,50 +1,53 @@
-<h2>任务信息</h2>
-<!-- <div class="pull-right">
-  <%= link_to("Add a job", new_job_path, :class => "btn btn-default" ) %>
-</div> -->
-<hr>
+<div class="col-md-10 col-md-offset-1 job-content">
+  <div class="row">
+    <div class="col-md-12 btn-group select-job-box">
 
-<div class="dropdown clearfix pull-right">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    排序<span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-    <li><%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %></li>
-    <li><%= link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound")) %></li>
-    <li><%= link_to("按照发表时间排序", jobs_path) %></li>
-  </ul>
+      <h2>任务信息</h2>
+      <div class="dropdown clearfix pull-right">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          排序<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+          <li><%= link_to("按照薪资下限排序", jobs_path(:order => "by_lower_bound")) %></li>
+          <li><%= link_to("按照薪资上限排序", jobs_path(:order => "by_upper_bound")) %></li>
+          <li><%= link_to("按照发表时间排序", jobs_path) %></li>
+        </ul>
+      </div>
+
+      <table class="table table-boldered table-striped custab">
+        <thead>
+          <tr>
+            <td>公司/个人</td>
+            <td>工作</td>
+            <td>类型</td>
+            <td>地区</td>
+            <td>工作内容</td>
+            <td>工作要求</td>
+            <td>薪酬</td>
+            <td>单位</td>
+            <td>联系方式</td>
+            <td>发布时间</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @jobs.each do |job| %>
+          <tr>
+            <td><%= job.name %></td>
+            <td><%= link_to(job.title, job_path(job)) %></td>
+            <td><%= job.category %></td>
+            <td><%= job.location %></td>
+            <td><%= job.content %></td>
+            <td><%= job.description %></td>
+            <td><%= job.wage %></td>
+            <td><%= job.wage_unit %></td>
+            <td><%= job.contact %></td>
+            <td><%= job.created_at %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
 </div>
-
-<table class="table table-boldered">
-  <thead>
-    <tr>
-      <td>公司/个人</td>
-      <td>工作</td>
-      <td>类型</td>
-      <td>地区</td>
-      <td>工作内容</td>
-      <td>工作要求</td>
-      <td>薪资下限</td>
-      <td>薪资上限</td>
-      <td>联系方式</td>
-      <td>发布时间</td>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
-    <tr>
-      <td><%= job.name %></td>
-      <td><%= link_to(job.title, job_path(job)) %></td>
-      <td><%= job.category %></td>
-      <td><%= job.location %></td>
-      <td><%= job.content %></td>
-      <td><%= job.description %></td>
-      <td><%= job.contact %></td>
-      <td><%= job.wage_lower_bound %></td>
-      <td><%= job.wage_upper_bound %></td>
-      <td><%= job.created_at %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>

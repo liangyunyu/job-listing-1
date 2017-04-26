@@ -1,10 +1,13 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12 btn-group admin-select-job-box">
 
 <%= link_to("Home", jobs_path) %> >
 <%= link_to("Admin Panel", admin_jobs_path) %>
 <br>
 <br>
 <div class="pull-left">
-  <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-default" ) %>
+  <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-info" ) %>
 </div>
 
 <div class="dropdown clearfix pull-right">
@@ -34,8 +37,8 @@
       <td>地区</td>
       <td>工作内容</td>
       <td>工作要求</td>
-      <td>薪资下限</td>
-      <td>薪资上限</td>
+      <td>薪酬</td>
+      <td>单位</td>
       <td>联系方式</td>
       <td>发布时间</td>
       <td>收到意向(点击查看)</td>
@@ -52,23 +55,23 @@
       <td><%= job.location %></td>
       <td><%= job.content %></td>
       <td><%= job.description %></td>
+      <td><%= job.wage %></td>
+      <td><%= job.wage_unit %></td>
       <td><%= job.contact %></td>
-      <td><%= job.wage_lower_bound %></td>
-      <td><%= job.wage_upper_bound %></td>
       <td><%= job.created_at %></td>
       <td><%= link_to(job.resumes.count.to_s + "份", admin_job_resumes_path(job)) %></td>
       <!-- <td><%= job.resumes.count %></td> -->
       <td>
         <!-- <%= link_to("Edit", edit_admin_job_path(job)) %> | -->
-        <%= link_to("Edit", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
+        <%= link_to("修改", edit_admin_job_path(job), :class => "btn btn-xs btn-info") %>
         <!-- <%= link_to("Destroy", admin_job_path(job), :method => :delete, :data => { :confirm => "Are you sure?" }) %> -->
-        <%= link_to("Destroy", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
+        <%= link_to("删除", admin_job_path(job), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "Are you sure?" }) %>
         <% if job.is_hidden %>
           <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-success") %>
           <!-- <%= link_to("Publish", publish_admin_job_path(job) , :method => :post, :class => "btn btn-xs btn-default") %> -->
           <!-- <%= link_to("Publish", "#", :class => "btn btn-xs btn-default") %> -->
         <% else %>
-          <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-warning") %>
+          <%= link_to("隐藏", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-warning") %>
           <!-- <%= link_to("Hide", hide_admin_job_path(job), :method => :post,  :class => "btn btn-xs btn-default") %> -->
           <!-- <%= link_to("Hide", "#", :class => "btn btn-xs btn-default") %> -->
         <% end %>
@@ -78,3 +81,7 @@
     <% end %>
   </tbody>
 </table>
+
+</div>
+</div>
+</div>

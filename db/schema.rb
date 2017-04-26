@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20170426071738) do
     t.text     "description"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.integer  "wage"
-    t.string   "wage_unit"
     t.integer  "wage_upper_bound"
     t.integer  "wage_lower_bound"
     t.string   "contact_email"
@@ -28,6 +26,8 @@ ActiveRecord::Schema.define(version: 20170426071738) do
     t.string   "category"
     t.string   "location"
     t.string   "contact"
+    t.integer  "wage"
+    t.string   "wage_unit"
   end
 
   create_table "resumes", force: :cascade do |t|

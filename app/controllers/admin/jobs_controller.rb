@@ -12,11 +12,11 @@ class Admin::JobsController < ApplicationController
     # @jobs = Job.all
     @jobs = case params[:order]
         when 'by_lower_bound'
-          Job.published.order('wage_lower_bound DESC')
+          Job.published.order('wage_lower_bound DESC').paginate(:page => params[:page], :per_page => 10)
         when 'by_upper_bound'
-          Job.published.order('wage_upper_bound DESC')
+          Job.published.order('wage_upper_bound DESC').paginate(:page => params[:page], :per_page => 10)
         else
-          Job.published.recent
+          Job.published.recent.paginate(:page => params[:page], :per_page => 10)
           # Job.published.order('created_at DESC')
         end
   end
@@ -29,7 +29,7 @@ class Admin::JobsController < ApplicationController
     @job = Job.new(job_params)
 
     if @job.save
-      redirect_to admin_jobs_path
+      redirect_to admin_jobs_path, notice: "添加职位成功"
     else
       render :new
     end
@@ -42,7 +42,7 @@ class Admin::JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if @job.update(job_params)
-      redirect_to admin_jobs_path
+      redirect_to admin_jobs_path, notice: "编辑需求成功！"
     else
       render :edit
     end
@@ -50,10 +50,8 @@ class Admin::JobsController < ApplicationController
 
   def destroy
     @job = Job.find(params[:id])
-
     @job.destroy
-
-    redirect_to admin_jobs_path
+    redirect_to admin_jobs_path, alert: "删除职位成功！"
   end
 
   def publish
@@ -75,7 +73,7 @@ class Admin::JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:name, :title, :content, :category, :location, :description, :wage, :wage_unit, :contact, :is_hidden)
+    params.require(:job).permit(:name, :title, :content, :description, :category, :location, :wage, :wage_unit, :contact, :is_hidden)
   end
 
 end

@@ -8,9 +8,9 @@
 </div>
 <% else %>
 <!--=== 搜索结果，有符合条件的数据 ===-->
-  <!--=== 搜索结果文字 ===-->
+<!--=== 搜索结果文字 ===-->
 <div class="col-md-10 col-md-offset-1 page-title">
-  <h1><sapn class="fa fa-search"></sapn> 搜索结果</h1>
+  <h1><sapn class="fa fa-search"></sapn> 搜索结果 </h1>
 </div>
 
 <!--=== 搜索结果内容 ===-->
@@ -33,17 +33,17 @@
       </div>
 
       <!--=== 公司信息 ===-->
-      <div class="col-md-6 col-xs-12 company">
+      <div class="col-md-6 col-xs-12 name">
         <div class="company-top">
-          <span><%= link_to(job.company, job_path(job))%></span>
+          <span><%= link_to(job.name, job_path(job))%></span>
           <% if current_user && current_user.is_member_of?(job) %>
-            <%= link_to remove_job_path(job), method: :post do %>
-              <sapn class="fa fa-star"></sapn>
-            <% end %>
+          <%= link_to remove_job_path(job), method: :post do %>
+          <sapn class="fa fa-star"></sapn>
+          <% end %>
           <% else %>
-            <%= link_to add_job_path(job), method: :post do %>
-              <sapn class="fa fa-star-o"></sapn>
-            <% end %>
+          <%= link_to add_job_path(job), method: :post do %>
+          <sapn class="fa fa-star-o"></sapn>
+          <% end %>
           <% end %>
         </div>
         <div class="company-mid">
@@ -65,19 +65,19 @@
               <sapn class="fa fa-tags"></sapn> <span>职位推荐</span>
             </div>
             <div class="row">
-            <% @suggests.each do |job| %>
-            <div class="col-xs-10 col-xs-offset-1 suggest-content">
-              <div>
-                <h3>
-                  <%= link_to job_path(job), target: "_blank" do %>
+              <% @suggests.each do |job| %>
+              <div class="col-xs-10 col-xs-offset-1 suggest-content">
+                <div>
+                  <h3>
+                    <%= link_to job_path(job), target: "_blank" do %>
                     <%= job.name %> [<%= job.location %>]
-                  <% end %>
-                </h3>
+                    <% end %>
+                  </h3>
+                </div>
+                <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
+                <div><span><%= job.company %></span></div>
               </div>
-              <div><p><%= job.wage_lower_bound %> k ~ <%= job.wage_upper_bound %> k</p></div>
-              <div><span><%= job.company %></span></div>
-            </div>
-            <% end %>
+              <% end %>
             </div>
           </div>
         </div>

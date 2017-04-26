@@ -1,10 +1,22 @@
-<h1> <%= @job.title %> </h1>
+<div class="col-md-10 col-md-offset-1 job-form-content">
+  <hr style="size:2px" />
+  <div class="form-group">
+    <h2> <%= @job.title %> </h2>
+    <h3>
+      任务类型：<%= @job.category %><br>
+      工作地点：<%= @job.location %><br>
+      公司/个人：<%= @job.name %><br>
+      工作内容：<%= simple_format(@job.content) %>
+      技能要求：<%= simple_format(@job.description) %>
+      报酬：<%= @job.wage %><br>
+      单位：<%= @job.wage_unit %><br>
+      联系方式：<%= simple_format(@job.contact) %>
+    </h3>
 
-<p>
-  <%= simple_format(@job.description) %>
-</p>
+    <div class="form-actions">
+      <!-- <%= link_to("投递履历", "#", :style => "font-size:30px; text-decoration:underline;") %> -->
+      <%= link_to("发送意向", new_job_resume_path(@job), :style => "font-size:30px; text-decoration:underline;") %>
+    </div>
 
-<div class="text-center">
-  <!-- <%= link_to("投递履历", "#", :style => "font-size:30px; text-decoration:underline;") %> -->
-  <%= link_to("发送意向", new_job_resume_path(@job), :style => "font-size:30px; text-decoration:underline;") %>
+  </div>
 </div>

@@ -17,16 +17,17 @@
       <table class="table table-boldered table-striped custab">
         <thead>
           <tr>
-            <td>公司/个人</td>
-            <td>工作</td>
-            <td>类型</td>
-            <td>地区</td>
-            <td>工作内容</td>
-            <td>工作要求</td>
-            <td>薪酬</td>
-            <td>单位</td>
-            <td>联系方式</td>
-            <td>发布时间</td>
+            <th>公司/个人</th>
+            <th>工作</th>
+            <th>类型</th>
+            <th>地区</th>
+            <th>工作内容</th>
+            <th>工作要求</th>
+            <th>薪酬</th>
+            <th>单位</th>
+            <th>联系方式</th>
+            <th>发布时间</th>
+            <th>发送申请</th>
           </tr>
         </thead>
 
@@ -43,11 +44,14 @@
             <td><%= job.wage_unit %></td>
             <td><%= job.contact %></td>
             <td><%= job.created_at %></td>
+            <td></td>
           </tr>
           <% end %>
         </tbody>
       </table>
-
+      <div class="text-center">
+        <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+      </div>
     </div>
   </div>
 </div>

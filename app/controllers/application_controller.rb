@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
 
   def require_is_admin
     if !current_user.admin?
-      flash[:alert] = 'You are not admin'
-      redirect_to root_path
+      # flash[:alert] = "你没有权限进行此操作！"
+      # redirect_to root_path
+      redirect_to root_path, alert: "你没有权限进行此操作！"
     end
   end
 

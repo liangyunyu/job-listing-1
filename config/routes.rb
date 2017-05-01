@@ -24,5 +24,10 @@ Rails.application.routes.draw do
       get :search
     end
   end
+end
 
+resources :resumes do
+  collection do
+    get :search
+  end
 end

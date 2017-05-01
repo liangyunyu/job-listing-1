@@ -25,11 +25,7 @@
         <div class="col-sm-4 col-xs-6"><p><i class="fa fa-trophy" aria-hidden="true"></i>要求：  <%= job.description %></p></div>
       </div>
       <div class="col-md-4 col-md-offset-8">
-        <% if !current_user || !current_user.has_applied?(job) %>
-        <%= link_to("<span class='fa fa-check'></span> 发送意向".html_safe, new_job_resume_path(job), class: "btn btn-xs btn-primary") %>
-        <% else %>
-        <%= link_to("<span class='fa fa-check'></span> 已经发送".html_safe, "#", class: "btn btn-xs btn-primary disabled") %>
-        <% end %>
+        
       </div>
       <% end %>
     </tbody>

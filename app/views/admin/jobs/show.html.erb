@@ -1,16 +1,54 @@
-<div class="col-md-10 col-md-offset-1 job-form-content">
-  <hr style="size:2px" />
-  <div class="form-group">
-    <h2> <%= @job.title %> </h2>
-    <h3>
+<div class="content">
+
+  <h3 class="job_section_title"><%= @job.title %></h3>
+
+  <div class="back">
+    <%= link_to(content_tag(:i, "返回", class: "glyphicon glyphicon-menu-left"), url_for(:jobs)) %>
+  </div>
+
+  <br/>
+
+  <div class="row">
+    <div class="col-md-3 col-md-offset-7">
+      Created time: <%= @job.created_at.strftime("%d %b. %Y") %>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="job_section_description">
+    <p>
       任务类型：<%= @job.category %><br>
       工作地点：<%= @job.location %><br>
       公司/个人：<%= @job.name %><br>
-      工作内容：<%= simple_format(@job.content) %>
-      技能要求：<%= simple_format(@job.description) %>
+      联系方式：<%= simple_format(@job.contact) %>
       报酬：<%= @job.wage %><br>
       单位：<%= @job.wage_unit %><br>
-      联系方式：<%= simple_format(@job.contact) %>
-    </h3>
+    </p>
+    <p>工作内容：<%= simple_format(@job.content) %></p>
+    <p>工作要求：<%= simple_format(@job.description) %></p>
   </div>
+
+  <br/>
+
+  <div class="text-center">
+    <div class="btn-1">
+      <% if !current_user %>
+      <%= link_to("提交简历", new_job_resume_path(@job), class: "btn btn-primary", method: :get) %>
+      <% else %>
+      <% if current_user.admin? %>
+      <%= link_to("提交简历", new_job_resume_path(@job), class: "btn btn-primary disabled", method: :get) %>
+      <% else %>
+      <% if current_user.has_applied?(@job) %>
+      <%= link_to("已经提交", new_job_resume_path(@job), class: "btn btn-primary disabled", method: :get) %>
+      <% else %>
+      <%= link_to("发送简历", new_job_resume_path(@job), class: "btn btn-primary", method: :get) %>
+      <% end %>
+      <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
+
 </div>

@@ -15,50 +15,50 @@
 *= require_self
 */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
 
 $nav-color-gray: #9E9E9E;
 $nav-color-white: #FAFAFA;
 $nav-color-black: #212121;
-$nav-background-black: #212121;
+$navbar-background-color: #3A3636;//
+$footer-background-color: #3A3636;//
 $nav-a-hover: #f40202;
 
-//Footer always on the bottom
+//****************************************************************//
+
 html {
-  position: relative;
   min-height: 100%;//拉高
+  position: relative;
+  overflow-x: hidden; overflow-y: auto;
+  // font-family: "Microsoft Yahei", 微软雅黑;
+  font-family: "YouYuan", 幼圆;
 }
 
 body {
   /* Margin bottom by footer height */
-  padding-top: 50px;
-  margin-bottom: 150px;//与footer.height对应
+  margin-bottom: 150px;
 }
 
-body {
-  font: 400 15px/1.8 Lato, sans-serif;
-  color: #777;
-  font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
+.alert {
+  margin-bottom: 0;//底部 margin 不撑开距离
+  margin-top: 4em;
+  border-radius: 0;
 }
-h3, h4 {
-  margin: 10px 0 30px 0;
-  letter-spacing: 10px;
-  font-size: 20px;
-  color: #111;
+
+.wrapper {
+  margin-bottom: -20px; /* 等于footer的高度 */
 }
 
 //****************************************************************//
 
 .navbar {
   // font-family: Montserrat, sans-serif;
-  font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
+  // font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
   margin-bottom: 0;
-  // background-color: #2d2d30;
-  // background-color: #212121;
   //background-color: transparent;
-  background-color: #3A3636;
+  background-color: $navbar-background-color;
   border: 0;
   font-size: 11px !important;
   letter-spacing: 4px;
@@ -96,328 +96,280 @@ h3, h4 {
 
 //****************************************************************//
 
-.carousel-inner img {
-  -webkit-filter: grayscale(50%);
-  filter: grayscale(50%); /* make all photos black and white */
-  width: 100%; /* Set width to 100% */
-  margin: auto;
-}
-.carousel-caption h3 {
-  color: #fff !important;
-}
-@media (max-width: 600px) {
-  .carousel-caption {
-    display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
-  }
-}
-.bg-1 {
-  background: #2d2d30;
-  color: #bdbdbd;
-}
-.bg-1 h3 {color: #fff;}
-.bg-1 p {font-style: italic;}
-
-.list-group-item:first-child {
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
-}
-.list-group-item:last-child {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-
-//****************************************************************//
-.user_pop{
-  height: 750px;
-  // background: image_url("user_background.jpg") no-repeat scroll top center/ cover;
-}
-
-.user_pop_content{
-  background: #fff;
-  margin-top: 120px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  box-shadow: 1px 3px 5px #333;
-  border: 1px solid #666;
-  border-radius: 10px;
-
-  opacity:0.95;
-  filter:alpha(opacity=95);
-
-  h2{
-    text-align: center;
-  }
-
-  .psw{
-    float: right;
-    margin-top: -33px;
-    position: relative;
-  }
-
-  .account{
-    text-align: center;
-  }
-
-  .form-inputs{
-    margin-top: 25px;
-  }
-
-  .form-actions{
-    text-align: center;
-    margin-top: 35px;
-    margin-bottom: 25px;
-
-    .button{
-      color: #fff;
-      background-color: #4A6BB5;
-      border-color: #4A6BB5;
-      font-size: 16px;
-      letter-spacing: 1px;
-      width: 100%;
-    }
-    .button:hover{
-      background-color: #4a94b5;
-      border-color: #4A99B5;
-      color: #fff;
-    }
-  }
-}
-
-//****************************************************************//
-
-.container {
-  padding: 80px 120px;
-}
-
-.person {
-  // border: 10px solid transparent;
-  margin-bottom: 25px;
-  width: 100%;
+.banner{
+  background-image: url('http://ww2.sinaimg.cn/large/006tNbRwgy1ff01s1l0f7j312w0nw43j.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: top center;
   height: 100%;
-  opacity: 0.8;
-}
-.person:hover {
-  border-color: #f1f1f1;
-}
-
-// .form-control {
-//     border-radius: 0;
-// }
-
-// textarea {
-//     resize: none;
-// }
-
-// .thumbnail {
-//     padding: 0 0 15px 0;
-//     border: none;
-//     border-radius: 0;
-// }
-// .thumbnail p {
-//     margin-top: 15px;
-//     color: #555;
-// }
-// .btn {
-//     padding: 10px 20px;
-//     background-color: #333;
-//     color: #f1f1f1;
-//     border-radius: 0;
-//     transition: .2s;
-// }
-// .btn:hover, .btn:focus {
-//     border: 1px solid #333;
-//     background-color: #fff;
-//     color: #000;
-// }
-// .modal-header, h4, .close {
-//     background-color: #333;
-//     color: #fff !important;
-//     text-align: center;
-//     font-size: 30px;
-// }
-// .modal-header, .modal-body {
-//     padding: 40px 50px;
-// }
-
-// .nav-tabs li a {
-//     color: #777;
-// }
-
-// #googleMap {
-//     width: 100%;
-//     height: 400px;
-//     // -webkit-filter: grayscale(100%);
-//     // filter: grayscale(100%);
-// }
-
-// .form-control {
-//     border-radius: 0;
-// }
-
-// textarea {
-//     resize: none;
-// }
-
-//*******************************table*********************************//
-
-.custab{
-  border: 1px solid #ccc;
-
-  padding: 5px;
-  margin: 5% 0;
-  box-shadow: 3px 3px 2px #ccc;
-
-  transition: 0.5s;
+  overflow: hidden;
+  padding-top: 100px;
+  padding-bottom: 100px;//内部的底部边距，这样按钮不会很靠近底部了
+  margin:0 -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
+  border-radius: 0;//圆角为0
 }
 
-.custab:hover{
-  box-shadow: 3px 3px 0px transparent;
-  transition: 0.5s;
+.banner_bottom{
+  background-image: url('http://ww1.sinaimg.cn/large/006tNbRwgy1ff3p1e4xmlj31400ic79i.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: center center;
+  width: 100%;
+  height: 20%;
+  // height: 150px;
+  overflow: hidden;
+  padding-top: 4.4em;
+  margin-top: -15px;
+  border-radius: 0;//圆角为0
+}
+
+.banner_text h1{
+  // font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: white;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  font-size:4.2em;
+  font-weight: 200;
+  line-height: 8rem;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+
+.banner_text h2{
+  // font-family: 'Open Sans', sans-serif;
+  font-size:1.7em;
+  font-weight: 180;
+  line-height: 6rem;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  margin-bottom: 3.5em;
+}
+
+.button {
+  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  display: block;
+  margin: 20px auto;
+  max-width: 8em;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+  color: rgba(250, 250, 250, 0.6);
+  box-shadow: rgba(250, 250, 250, 0.6) 0 0px 0px 2px inset;
+  // font-family: 'Open Sans', sans-serif;
+  font-size: 2rem;
+}
+
+.button:hover,
+.button:focus {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: rgba(242, 242, 242, 0.5) 0 0px 0px 4em inset;
+  text-decoration: none;
 }
 
 
-
-//*******************************job*********************************//
-
-.job-info-box{
-color: #333;
-font-family: "Hiragino Sans GB","Microsoft Yahei",SimSun,Arial,"Helvetica Neue",Helvetica;
-
-h3{
-  text-align: left;
-  color: #3D537F;
+/*Company Section style
+==================*/
+.title {
+  text-align: center;
+  font-size:3.5rem;
+  font-weight: 700;
+  line-height: 6rem;
+  letter-spacing: 0.1rem;
+  color: #333333;
+  letter-spacing: 0.1rem;
 }
 
-p{
-  font-size: 16px;
-  color: #666;
+#features {
+  margin-top:17px;
 }
-.name{
-  font-size: 20px;
-  color: #999;
+.feature, .feature i, .feature h3, .feature .title_border {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
-
-.wage{
-  color: #FF7D0A;
-  letter-spacing: -1px;
-  font-size: 18px;
-}
-
-.created{
-  color: #999;
-  font-size: 14px;
+.feature {
+  background:#FFFFFF;
+  text-align:center;
+  padding:2em;
 }
 
-.website{
-  letter-spacing: 1px;
-}
-}
-
-.job-action-box{
-text-align: right;
-margin-top: 25px;
-margin-right: 25px;
-
-div{
-  width: 200px;
-  display: inline;
+.feature i{
+  font-size:3em;
+  padding:0.5em;
+  color:#FFFFFF;
+  background:#808080;
+  border-radius:50%;
+  border: solid 3px #808080;
 }
 
-.btn-lg{
-  width: 125px;
-}
-}
-
-.job-content-box{
-letter-spacing: 0.5px;
-
-h4{
-  color: #004080;
+.feature h4 {
+  color: #fff;
 }
 
-.content-info{
-  min-height: 450px;
-  p{
-    line-height: 30px;
+.feature:hover h4 {
+  color:#808080;
+}
+.feature:hover {
+  background:#fff;
+  -webkit-transform: translate(0,1em);
+  -moz-transform: translate(0,1em);
+  -o-transform: translate(0,1em);
+  -ms-transform: translate(0,1em);
+  transform: translate(0,1em);
+}
+.feature:hover i{
+  color:#565656;
+  border-color:#808080;
+  background:#fff;
+}
+
+/*
+service section style
+========================*/
+
+.service_items {
+  margin: 80px 0;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+}
+
+.service_left_text h4,
+.service_right_text h4 {
+  font-weight: 400;
+  font-size:1.3em;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: -80px;
+}
+
+.service_left_text p,
+.service_right_text p {
+  font-size:1em;
+  font-weight: 400;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: -80px;
+}
+
+
+/*
+Browse Your Jobs Section
+========================*/
+.category {
+  padding: 0 1.4286em 0;
+  margin: 3.5714em auto 7em;
+  text-align: center;
+  height: auto;
+  width: auto;
+  position: relative;
+  li {
+    display: inline-block;
+    width: 15.7143em;
+    height: 10.7143em;
+    margin-left: 0.7143em;
+    margin-right: 0.7143em;
+    position: relative;
+    margin-bottom: 3.5714em;
+    overflow: hidden;
+    .category-img-wrap {
+      width: 15.7143em;
+      height: 10.7143em;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      &:hover {
+        transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -webkit-transition: all .8s;
+        transition: all .5s;
+      }
+    }
+    .box-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,.7);
+      font-size: 1.142em;
+      padding: 0.45em 1.71em;
+      color: #fff;
+      transition: opacity .4s ease-in-out;
+    }
   }
 }
 
-.mail-info{
-  margin-bottom: 75px;
-  font-size: 18px;
-
-  .email{
-    font-size: 16px;
-  }
-}
-}
-.same-box{
-padding: 15px;
-
-.title{
-  font-size: 20px;
-  font-weight: 500;
-  color: #004080;
-  margin-bottom: 7.5px;
+/*
+Browse Your Jobs Section
+========================*/
+.slogan {
+  text-align: center;
+  padding-top: 2em;
+  padding-bottom: 3em;
+  // font-family: 'Dosis', sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 2.6em;
+  line-height: 2em;
 }
 
-span::after{
-  content: "";
+
+/* === Common === */
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+
+/*
+footer
+========================*/
+
+.footer {
   position: absolute;
-  top: 30px;
-  left: 120px;
-  display: inline-block;
-  width: 150px;
-  border-bottom: 1px solid #0070DE;
-}
-
-.same-content{
-  width: 240px;
-  background-color: #fff;
-  padding: 2px 2px 12px 12px;
-  border: 0.5px dashed #ccc;
-
-  div{
-    margin-top: -5px;
-    margin-bottom: -5px;
-  }
-  h3{
-    font-size: 16px;
-  }
-  p{
-    font-size: 16px;
-    color: #FF7D0A;
-    letter-spacing: -1px;
-  }
-  span{
-    color: #aaa;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-  }
-}
-}
-
-
-//****************************************************************//
-
-footer {
-  // background-color: #2d2d30;
-  // background-color: #212121;
-  background-color: #3A3636;
-  // color: #f5f5f5;
-  color: #f5f5f5;
-  padding: 32px;
-  //on buttom
-  position: absolute;
+  padding: 0;
+  // margin: 0;
   bottom: 0;
   width: 100%;
   height: 150px;
+  background-color: $footer-background-color;
 }
-footer a {
-  color: #f5f5f5;
+
+.footer-text {
+  color: #9d9d9d;
+  margin-top: 50px;
 }
-footer a:hover {
-  color: #777;
-  text-decoration: none;
+
+.footer_icon a {
+  font-size: 25px;
+  margin-top: 68px;
+  color:#9d9d9d;
+  text-decoration:none;
+}
+
+.footer_icon a:hover {
+  font-size: 25px;
+  margin-top: 68px;
+  color:#fff;
+  text-decoration:none;
+}
+
+.footer_icon li {
+  display:inline;
+  margin-left: 0.6em;
+  margin-right: 0.6em;
 }

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>自由工作网</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
+    <title>自由工作网 - 尽情释放你的潜能！</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="shortcut icon" href="/images/favicon.ico">
@@ -9,20 +11,13 @@
   </head>
 
   <body>
-    <%= render "common/flashes" %>
-
-    <div class="row">
-      <%= render "common/navbar" %>
-    </div>
-
-    <div class="container-fluid">
+    <div class="wrapper">
       <div class="row">
-        <%= yield %>
+        <%= render "common/navbar" %>
       </div>
+      <%= render "common/flashes" %>
+      <%= yield %>
     </div>
-
-    <%= render "common/footer" %>
-
+    <%= render "common/footer"%>
   </body>
-
 </html>

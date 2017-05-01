@@ -1,4 +1,8 @@
 class Job < ApplicationRecord
+
+  belongs_to :user
+  has_many :resumes
+
   validates :title, presence: { message: "请填写工作名称" }
   validates :name, presence: { message: "请填写公司或个人名称" }
   validates :content, presence: { message: "请填写工作内容" }
@@ -10,9 +14,6 @@ class Job < ApplicationRecord
   # validates :wage_lower_bound, numericality: { greater_than: 0}
   validates :wage, numericality: { greater_than: 0}
   validates :contact, presence: { message: "请填写联系方式" }
-
-  belongs_to :user
-  has_many :resumes
 
   scope :published, -> {where(is_hidden: false)}
   scope :recent, -> {order('created_at DESC')}
@@ -29,6 +30,9 @@ class Job < ApplicationRecord
 
   scope :recent, -> { order('created_at DESC') }
   scope :published, -> { where(is_hidden: false) }
+  scope :lower_wage, -> {order('wage DESC')}
+  scope :upper_wage, -> {order('wage ASC')}
+
   scope :random5, -> { limit(5).order("RANDOM()") }
 
   scope :wage1, -> { where('wage <= 5') }

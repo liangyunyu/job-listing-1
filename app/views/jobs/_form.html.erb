@@ -1,5 +1,3 @@
-<div class="col-md-10 col-md-offset-1 job-form-content">
-  <hr style="size:2px" />
   <%= simple_form_for [:admin,@job] do |f| %>
     <div class="form-group">
       <%= f.input :name, :label => "公司/个人：", placeholder: '请输入公司或个人姓名' %>
@@ -33,4 +31,3 @@
       <%= f.submit "发布", disable_with: "Submiting...", class: "button"%>
     </div>
   <% end %>
-</div>

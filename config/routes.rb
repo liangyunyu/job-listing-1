@@ -25,8 +25,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :resumes do
-    collection do
-      get :search
-    end
-  end
+  # resources :resumes do
+  #   collection do
+  #     get :search
+  #   end
+  # end

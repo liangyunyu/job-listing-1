@@ -58,8 +58,7 @@ class ResumesController < ApplicationController
   private
 
   def resume_params
-    # params.require(:resume).permit(:content, :attachment)
-    params.require(:resume).permit(:title, :description, :wage, :wage_unit, :contact, :is_hidden, :name, :location, :category)
+    params.require(:resume).permit(:name, :title, :content, :description, :category, :location, :wage, :wage_unit, :contact, :is_hidden)
   end
 
 end

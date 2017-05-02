@@ -1,0 +1,29 @@
+<%= simple_form_for [:admin,@resume] do |f| %>
+  <div class="form-group">
+    <%= f.input :name, :label => "公司/个人：", placeholder: '请输入公司或个人姓名' %>
+    <%= f.input :title, :label => "意向名称：", placeholder: '请输入意向名称' %>
+    <%= f.input :content, :label => "意向内容：", placeholder: '请输入意向内容' %>
+    <%= f.input :description, :label => "技能特长：", placeholder: '请输入技能要求' %>
+    <hr />
+    <!-- 类型 -->
+    <% if @resume.category? %>
+      <%= f.input :category, :label => "意向类型：", :collection => ["技术", "写作", "设计", "摄影", "教育", "演出", "销售", "家政", "其他"], :checked => @resume.category, input_html: { class: 'category' } %>
+    <% else %>
+      <%= f.input :category, :label => "意向类型：", :collection => ["技术", "写作", "设计", "摄影", "教育", "演出", "销售", "家政", "其他"], input_html: { class: 'category' } %>
+    <% end %>
+    <!-- 地点 -->
+    <% if @resume.location? %>
+      <%= f.input :location, :label => "工作地点：", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外", "远程", "其他"], :checked => @resume.location, input_html: { class: 'location' } %>
+    <% else %>
+      <%= f.input :location, :label => "工作地点：", :collection => ["北京", "上海", "深圳", "广州", "杭州", "成都", "香港", "海外", "远程", "其他"], input_html: { class: 'location' } %>
+    <% end %>
+    <%= f.input :wage, :label => "期待报酬：", placeholder: '请输入金额' %>
+    <%= f.input :wage_unit, :label => "报酬单位：", :collection => ["元/次", "元/小时", "元/天", "元/周", "元/月", "元/季度", "元/年", "永久", "其他"] %>
+    <%= f.input :contact, :label => "联系方式：", placeholder: '请输入联系方式' %>
+    <hr />
+    <sapn class="hidden-box"><%= f.input :is_hidden, label: '隐藏意向' %></sapn>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "发布意向", disable_with: "Submiting...", class: "button"%>
+  </div>
+<% end %>

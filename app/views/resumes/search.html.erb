@@ -1,0 +1,38 @@
+<div class="content">
+  <h3>找人</h3>
+  <% if @resumes.blank? %>
+  <div class="search-info-title text-center">
+    没有符合搜索条件的资料哦！<br>
+    <%= link_to("立即查看工作", resumes_path, class: "btn btn-sm btn-success") %>
+  </div>
+
+  <% else %>
+  <div class="table">
+    <tbody>
+      <% @resumes.each do |resume| %>
+      <div class="job_vacancy row"><p><%= link_to(resume.title, resume_path(resume)) %></p></div>
+      <div>
+        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-arrow-right" aria-hidden="true"></i>类型：  <%= resume.category %></p></div>
+        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-location-arrow" aria-hidden="true"></i>地点：  <%= resume.location %></p></div>
+        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-jpy" aria-hidden="true"></i>报酬：  <%= resume.wage %></p></div>
+      </div>
+      <div class="job_details_1 row">
+        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-star" aria-hidden="true"></i>发布：  <%= resume.name %></p></div>
+        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-address-book" aria-hidden="true"></i>联系：  <%= resume.contact %></p></div>
+        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-calendar" aria-hidden="true"></i>发布：  <%= resume.created_at.strftime("%Y年%m月%d日") %></p></div>
+      </div>
+      <div class="job_details_2 row">
+        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-tasks" aria-hidden="true"></i>内容：  <%= resume.content %></p></div>
+        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-trophy" aria-hidden="true"></i>要求：  <%= resume.description %></p></div>
+      </div>
+      <div class="col-md-4 col-md-offset-8">
+
+      </div>
+      <% end %>
+    </tbody>
+  </div>
+  <div class="text-center">
+    <%= will_paginate(@resumes, renderer: BootstrapPagination::Rails) %>
+  </div>
+  <% end %>
+</div>

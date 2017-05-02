@@ -1,3 +1,73 @@
-<h2><%= @job.title %> - 收到的意向列表 </h2>
-<hr>
-<%= render :partial => "resume", :collection => @resumes, :as => :resume %>
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-12 btn-group admin-select-job-box">
+      <br>
+      <%= link_to("Home", resumes_path) %> > <%= link_to("Admin Panel", admin_resumes_path) %>
+      <br>
+      <br>
+      <div class="pull-left">
+        <%= link_to("新建需求", new_admin_resume_path, :class => "btn btn-info" ) %>
+      </div>
+
+      <div class="dropdown clearfix pull-right">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          排序<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+          <li><%= link_to("按照报酬下限排序", admin_resumes_path(:order => "by_lower_bound")) %></li>
+          <li><%= link_to("按照报酬上限排序", admin_resumes_path(:order => "by_upper_bound")) %></li>
+          <li><%= link_to("按照发布时间排序", admin_resumes_path ) %></li>
+        </ul>
+      </div>
+
+      <!-- <table class="table table-boldered"> -->
+      <table class="table table-boldered table-striped custab" >
+        <thead>
+          <tr>
+            <th>公司/个人</th>
+            <th>意向名称</th>
+            <th>意向类型</th>
+            <th>工作地点</th>
+            <th>意向内容</th>
+            <th>技能特长</th>
+            <th>期望报酬</th>
+            <th>报酬单位</th>
+            <th>联系方式</th>
+            <th>发布时间</th>
+            <th>管理选项</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @resumes.each do |resume| %>
+          <tr>
+            <td><%= resume.name %></td>
+            <td><%= link_to(resume.title, resume_path(resume)) %></td>
+            <td><%= resume.category %></td>
+            <td><%= resume.location %></td>
+            <td><%= resume.content %></td>
+            <td><%= resume.description %></td>
+            <td><%= resume.wage %></td>
+            <td><%= resume.wage_unit %></td>
+            <td><%= resume.contact %></td>
+            <td><%= resume.created_at %></td>
+            <td>
+              <%= link_to("修改", edit_admin_resume_path(resume), :class => "btn btn-xs btn-info") %>
+              <%= link_to("删除", admin_resume_path(resume), :method => :delete, :class => "btn btn-xs btn-danger", :data => { :confirm => "你确定删除该需求吗？" }) %>
+              <% if resume.is_hidden %>
+              <%= link_to("Publish", publish_admin_resume_path(resume) , :method => :post, :class => "btn btn-xs btn-success") %>
+              <% else %>
+              <%= link_to("隐藏", hide_admin_resume_path(resume), :method => :post,  :class => "btn btn-xs btn-warning") %>
+              <% end %>
+            </td>
+
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <%= will_paginate @resumes, renderer: BootstrapPagination::Rails %>
+      </div>
+    </div>
+  </div>
+</div>

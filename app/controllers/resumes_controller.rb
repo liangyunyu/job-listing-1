@@ -1,5 +1,6 @@
 class ResumesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :favorite]
+  before_action :validate_search_key, only: [:search]
 
   def index
     # @resumes = Resume.all
@@ -36,10 +37,29 @@ class ResumesController < ApplicationController
 
   end
 
+  def search
+    if @query_string.present?
+      search_result = Resume.ransack(@search_criteria).result(:distinct => true)
+      @resumes = search_result.paginate(:page => params[:page], :per_page => 5 )
+    end
+  end
+
+  protected
+
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+  def search_criteria(query_string)
+    { :title_cont => query_string }
+  end
+
   private
 
   def resume_params
-    params.require(:resume).permit(:content, :attachment)
+    # params.require(:resume).permit(:content, :attachment)
+    params.require(:resume).permit(:title, :description, :wage, :wage_unit, :contact, :is_hidden, :name, :location, :category)
   end
 
 end

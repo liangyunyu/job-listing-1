@@ -336,9 +336,64 @@ Browse Your Jobs Section
 }
 
 
-/*
-footer
-========================*/
+//****************************************************************//
+.user_pop{
+  height: 750px;
+  // background: image_url("user_background.jpg") no-repeat scroll top center/ cover;
+}
+
+.user_pop_content{
+  background: #fff;
+  margin-top: 120px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 1px 3px 5px #333;
+  border: 1px solid #666;
+  border-radius: 10px;
+
+  opacity:0.95;
+  filter:alpha(opacity=95);
+
+  h2{
+    text-align: center;
+  }
+
+  .psw{
+    float: right;
+    margin-top: -33px;
+    position: relative;
+  }
+
+  .account{
+    text-align: center;
+  }
+
+  .form-inputs{
+    margin-top: 25px;
+  }
+
+  .form-actions{
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+    .button{
+      color: #fff;
+      background-color: #4A6BB5;
+      border-color: #4A6BB5;
+      font-size: 16px;
+      letter-spacing: 1px;
+      width: 100%;
+    }
+    .button:hover{
+      background-color: #4a94b5;
+      border-color: #4A99B5;
+      color: #fff;
+    }
+  }
+}
+
+//****************************************************************//
 
 .footer {
   position: absolute;

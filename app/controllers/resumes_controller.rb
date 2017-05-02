@@ -1,6 +1,21 @@
 class ResumesController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    # @resumes = Resume.all
+    @resumes = case params[:order]
+    when 'by_lower_bound'
+      # Resume.published.lower_wage.paginate(:page => params[:page], :per_page => 5)
+      Resume.lower_wage.paginate(:page => params[:page], :per_page => 5)
+    when 'by_upper_bound'
+      # Resume.published.upper_wage.paginate(:page => params[:page], :per_page => 5)
+      Resume.upper_wage.paginate(:page => params[:page], :per_page => 5)
+    else
+      # Resume.published.recent.paginate(:page => params[:page], :per_page => 5)
+      Resume.recent.paginate(:page => params[:page], :per_page => 5)
+    end
+  end
+
   def new
     @job = Job.find(params[:job_id])
     @resume = Resume.new

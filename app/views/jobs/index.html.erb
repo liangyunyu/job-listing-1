@@ -16,16 +16,16 @@
         <% @jobs.each do |job| %>
         <div class="job_vacancy row"><p><%= link_to(job.title, job_path(job)) %></p></div>
         <div class="job_details_1 row">
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-arrow-right" aria-hidden="true"></i>类型：  <%= job.category %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-location-arrow" aria-hidden="true"></i>地点：  <%= job.location %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-calendar" aria-hidden="true"></i>时间：  <%= job.created_at.strftime("%Y年%m月%d日") %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-users" aria-hidden="true"></i>发布：  <%= job.name %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-address-book" aria-hidden="true"></i>联系：  <%= job.contact %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-jpy" aria-hidden="true"></i>报酬：  <%= job.wage %><%= job.wage_unit %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-arrow-right" aria-hidden="true"></i>工作类型：  <%= job.category %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-location-arrow" aria-hidden="true"></i>工作地点：  <%= job.location %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-calendar" aria-hidden="true"></i>发布时间：  <%= job.created_at.strftime("%Y年%m月%d日") %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-users" aria-hidden="true"></i>公司/个人：  <%= job.name %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-address-book" aria-hidden="true"></i>联系方式：  <%= job.contact %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-jpy" aria-hidden="true"></i>工作报酬：  <%= job.wage %><%= job.wage_unit %></p></div>
         </div>
         <div class="job_details_2 row">
-          <div class="col-sm-12 col-xs-6"><p><i class="fa fa-tasks" aria-hidden="true"></i>内容：  <%= job.content %></p></div>
-          <div class="col-sm-12 col-xs-6"><p><i class="fa fa-trophy" aria-hidden="true"></i>要求：  <%= job.description %></p></div>
+          <div class="col-sm-12 col-xs-6"><p><i class="fa fa-tasks" aria-hidden="true"></i>工作内容：  <%= job.content %></p></div>
+          <div class="col-sm-12 col-xs-6"><p><i class="fa fa-trophy" aria-hidden="true"></i>技能要求：  <%= job.description %></p></div>
           <div class="col-md-4 col-md-offset-8">
             <% if !current_user %>
             <%= link_to("<span class='fa fa-check'></span> 发送意向".html_safe, new_job_resume_path(job), class: "btn btn-xs btn-primary") %>

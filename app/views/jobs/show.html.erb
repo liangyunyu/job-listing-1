@@ -22,11 +22,11 @@
       工作地点：<%= @job.location %><br>
       公司/个人：<%= @job.name %><br>
       联系方式：<%= simple_format(@job.contact) %>
-      报酬：<%= @job.wage %><br>
-      单位：<%= @job.wage_unit %><br>
+      工作报酬：<%= @job.wage %><br>
+      报酬单位：<%= @job.wage_unit %><br>
     </p>
     <p>工作内容：<%= simple_format(@job.content) %></p>
-    <p>工作要求：<%= simple_format(@job.description) %></p>
+    <p>技能要求：<%= simple_format(@job.description) %></p>
   </div>
 
   <br/>

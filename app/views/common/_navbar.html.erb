@@ -28,7 +28,7 @@
         </div>
         <li><a href="/resumes">找人</a></li>
         <div class="navbar-form navbar-left">
-          <%= form_tag search_jobs_path, :method => :get do %>
+          <%= form_tag search_resumes_path, :method => :get do %>
           <div class="input-group">
             <input type="text" class="form-control" name="q" value="<%= params[:q] %>" placeholder="找帮忙，找协助！">
             <div class="input-group-btn">

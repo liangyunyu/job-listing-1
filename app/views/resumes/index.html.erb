@@ -27,9 +27,6 @@
           <div class="col-sm-12 col-xs-6"><p><i class="fa fa-tasks" aria-hidden="true"></i>工作意向：  <%= resume.content %></p></div>
           <div class="col-sm-12 col-xs-6"><p><i class="fa fa-trophy" aria-hidden="true"></i>技能特长：  <%= resume.description %></p></div>
           <div class="col-md-4 col-md-offset-8">
-            <% if !current_user %>
-            <%= link_to("<span class='fa fa-check'></span> 发送意向".html_safe, new_resume_resume_path(resume), class: "btn btn-xs btn-primary") %>
-            <% end %>
           </div>
         </div>
         <% end %>

@@ -55,7 +55,7 @@ class ResumesController < ApplicationController
     { :title_or_name_or_category_or_location_cont => query_string }
   end
 
-  private
+  # private
 
   # def resume_params
   #   params.require(:resume).permit(:name, :title, :content, :description, :category, :location, :wage, :wage_unit, :contact, :is_hidden)

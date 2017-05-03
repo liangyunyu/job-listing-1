@@ -82,13 +82,13 @@ class JobsController < ApplicationController
   end
 
   def search_criteria(query_string)
-    { :title_cont => query_string }
+    { :title_or_name_or_category_or_location_cont => query_string }
   end
 
-  private
+  # private
 
-  def job_params
-    params.require(:job).permit(:title, :description, :wage, :wage_unit, :contact, :is_hidden, :name, :location, :category)
-  end
+  # def job_params
+  #   params.require(:job).permit(:title, :description, :wage, :wage_unit, :contact, :is_hidden, :name, :location, :category)
+  # end
 
 end

@@ -1,38 +1,37 @@
 <div class="content">
   <h3>找事</h3>
   <% if @jobs.blank? %>
-  <div class="search-info-title text-center">
-    没有符合搜索条件的资料哦！<br>
-    <%= link_to("立即查看工作", jobs_path, class: "btn btn-sm btn-success") %>
-  </div>
-
+    <div class="search-info-title text-center">
+      没有符合搜索条件的资料哦！<br>
+      <%= link_to("立即查看工作", jobs_path, class: "btn btn-sm btn-success") %>
+    </div>
   <% else %>
-  <div class="table">
-    <tbody>
-      <% @jobs.each do |job| %>
-      <div class="job_vacancy row"><p><%= link_to(job.title, job_path(job)) %></p></div>
-      <div>
-        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-arrow-right" aria-hidden="true"></i>类型：  <%= job.category %></p></div>
-        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-location-arrow" aria-hidden="true"></i>地点：  <%= job.location %></p></div>
-        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-jpy" aria-hidden="true"></i>报酬：  <%= job.wage %></p></div>
-      </div>
-      <div class="job_details_1 row">
-        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-star" aria-hidden="true"></i>发布：  <%= job.name %></p></div>
-        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-address-book" aria-hidden="true"></i>联系：  <%= job.contact %></p></div>
-        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-calendar" aria-hidden="true"></i>发布：  <%= job.created_at.strftime("%Y年%m月%d日") %></p></div>
-      </div>
-      <div class="job_details_2 row">
-        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-tasks" aria-hidden="true"></i>内容：  <%= job.content %></p></div>
-        <div class="col-sm-4 col-xs-6"><p><i class="fa fa-trophy" aria-hidden="true"></i>要求：  <%= job.description %></p></div>
-      </div>
-      <div class="col-md-4 col-md-offset-8">
+    <div class="table">
+      <tbody>
+        <% @jobs.each do |job| %>
+        <div class="job_vacancy row"><p><%= link_to(job.title, job_path(job)) %></p></div>
+        <div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-arrow-right" aria-hidden="true"></i>需求类型：  <%= job.category %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-location-arrow" aria-hidden="true"></i>工作地点：  <%= job.location %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-jpy" aria-hidden="true"></i>工作报酬：  <%= job.wage %></p></div>
+        </div>
+        <div class="job_details_1 row">
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-star" aria-hidden="true"></i>公司/个人：  <%= job.name %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-address-book" aria-hidden="true"></i>联系方式：  <%= job.contact %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-calendar" aria-hidden="true"></i>发布时间：  <%= job.created_at.strftime("%Y年%m月%d日") %></p></div>
+        </div>
+        <div class="job_details_2 row">
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-tasks" aria-hidden="true"></i>工作内容：  <%= job.content %></p></div>
+          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-trophy" aria-hidden="true"></i>技能要求：  <%= job.description %></p></div>
+        </div>
+        <div class="col-md-4 col-md-offset-8">
 
-      </div>
-      <% end %>
-    </tbody>
-  </div>
-  <div class="text-center">
-    <%= will_paginate(@jobs, renderer: BootstrapPagination::Rails) %>
-  </div>
+        </div>
+        <% end %>
+      </tbody>
+    </div>
+    <div class="text-center">
+      <%= will_paginate(@jobs, renderer: BootstrapPagination::Rails) %>
+    </div>
   <% end %>
 </div>

@@ -22,9 +22,13 @@
 $nav-color-gray: #9E9E9E;
 $nav-color-white: #FAFAFA;
 $nav-color-black: #212121;
-$navbar-background-color: #3A3636;//
-$footer-background-color: #3A3636;//
+$navbar-background-color: #3A3636;
+$footer-background-color: #3A3636;
 $nav-a-hover: #f40202;
+$banner_text-color: #C6BEB8;
+$content_slogan1-color: #724226;
+$content_slogan2-color: gray;
+$content_text-color: gray;
 
 //****************************************************************//
 
@@ -32,6 +36,8 @@ html {
   min-height: 100%;//拉高
   position: relative;
   overflow-x: hidden; overflow-y: auto;
+  // font-family: Montserrat, sans-serif;
+  // font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
   // font-family: "Microsoft Yahei", 微软雅黑;
   font-family: "YouYuan", 幼圆;
 }
@@ -55,10 +61,9 @@ body {
 //****************************************************************//
 
 .navbar {
-  // font-family: Montserrat, sans-serif;
-  // font-family: "Helvetica Neue", "Microsoft Yahei", 微软雅黑;
+
   margin-bottom: 0;
-  //background-color: transparent;
+  // background-color: transparent;
   background-color: $navbar-background-color;
   border: 0;
   font-size: 11px !important;
@@ -97,62 +102,37 @@ body {
 
 //****************************************************************//
 
-.banner{
-  background-image: url('http://ww2.sinaimg.cn/large/006tNbRwgy1ff01s1l0f7j312w0nw43j.jpg');
+.banner_top {
+  background-image:url('http://ww2.sinaimg.cn/large/006tNbRwgy1ff01s1l0f7j312w0nw43j.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  background-position: top center;
-  height: 100%;
-  overflow: hidden;
-  padding-top: 100px;
-  padding-bottom: 100px;//内部的底部边距，这样按钮不会很靠近底部了
-  margin:0 -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
-  border-radius: 0;//圆角为0
+  background-position: center;//显示图片中间位置
+  padding-bottom: 50px;
 }
 
-.banner_bottom{
-  background-image: url('http://ww1.sinaimg.cn/large/006tNbRwgy1ff3p1e4xmlj31400ic79i.jpg');
+.slogan1 {
+  color: white;
+  margin-top: 50px;
+  margin-left: 50px;
+  // margin-bottom: 80px;
+}
+
+.slogan2 {
+  text-align: center;
+  color: white;
+  margin-top: 350px;
+  // margin-bottom: 20px;
+}
+
+.banner_bottom {
+  background-image:url('http://ww1.sinaimg.cn/large/006tNbRwgy1ff3p1e4xmlj31400ic79i.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  background-position: center center;
-  width: 100%;
-  height: 20%;
-  // height: 150px;
-  overflow: hidden;
-  padding-top: 4.4em;
-  margin-top: -15px;
-  border-radius: 0;//圆角为0
+  background-position: center;
+  padding-top: 50px;
 }
 
-.banner_text h1{
-  // font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  color: white;
-  letter-spacing: 0.5rem;
-  text-transform: uppercase;
-  font-size:4.2em;
-  font-weight: 200;
-  line-height: 8rem;
-  padding-left: 0.6em;
-  padding-right: 0.6em;
-}
-
-.banner_text h2{
-  // font-family: 'Open Sans', sans-serif;
-  font-size:1.7em;
-  font-weight: 180;
-  line-height: 6rem;
-  color: white;
-  text-align: center;
-  letter-spacing: 0.1rem;
-  padding-left: 0.6em;
-  padding-right: 0.6em;
-  margin-bottom: 3.5em;
-}
-
-.button {
+.flash_button {
   -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
   -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
   -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
@@ -167,78 +147,35 @@ body {
   padding: 20px;
   color: rgba(250, 250, 250, 0.6);
   box-shadow: rgba(250, 250, 250, 0.6) 0 0px 0px 2px inset;
-  // font-family: 'Open Sans', sans-serif;
   font-size: 2rem;
 }
 
-.button:hover,
-.button:focus {
+.flash_button:hover,
+.flash_button:focus {
   color: rgba(255, 255, 255, 1);
   box-shadow: rgba(242, 242, 242, 0.5) 0 0px 0px 4em inset;
   text-decoration: none;
 }
 
+//****************************************************************//
 
-/*Company Section style
-==================*/
-.title {
+
+.content_slogan1 {
   text-align: center;
-  font-size:3.5rem;
-  font-weight: 700;
-  line-height: 6rem;
-  letter-spacing: 0.1rem;
-  color: #333333;
-  letter-spacing: 0.1rem;
+  color: $content_slogan1-color;
 }
 
-#features {
-  margin-top:17px;
-}
-.feature, .feature i, .feature h3, .feature .title_border {
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
-}
-.feature {
-  background:#FFFFFF;
-  text-align:center;
-  padding:2em;
+.content_slogan2 {
+  text-align: center;
+  color: $content_slogan2-color;
 }
 
-.feature i{
-  font-size:3em;
-  padding:0.5em;
-  color:#FFFFFF;
-  background:#808080;
-  border-radius:50%;
-  border: solid 3px #808080;
+.content_text {
+  text-align: center;
+  color: $content_text-color;
 }
 
-.feature h4 {
-  color: #fff;
-}
-
-.feature:hover h4 {
-  color:#808080;
-}
-.feature:hover {
-  background:#fff;
-  -webkit-transform: translate(0,1em);
-  -moz-transform: translate(0,1em);
-  -o-transform: translate(0,1em);
-  -ms-transform: translate(0,1em);
-  transform: translate(0,1em);
-}
-.feature:hover i{
-  color:#565656;
-  border-color:#808080;
-  background:#fff;
-}
-
-/*
-service section style
-========================*/
+//****************************************************************//
 
 .service_items {
   margin: 80px 0;
@@ -379,15 +316,15 @@ Browse Your Jobs Section
 
     .button{
       color: #fff;
-      background-color: #4A6BB5;
-      border-color: #4A6BB5;
+      background-color: #3A3636;
+      border-color: #3A3636;
       font-size: 16px;
       letter-spacing: 1px;
       width: 100%;
     }
     .button:hover{
-      background-color: #4a94b5;
-      border-color: #4A99B5;
+      background-color: #98691b;
+      border-color: #98691b;
       color: #fff;
     }
   }

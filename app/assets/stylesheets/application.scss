@@ -334,35 +334,71 @@ Browse Your Jobs Section
 
 .footer {
   position: absolute;
-  padding: 0;
-  // margin: 0;
   bottom: 0;
   width: 100%;
   height: 150px;
   background-color: $footer-background-color;
+  text-align: center;
 }
 
 .footer-text {
-  color: #9d9d9d;
-  margin-top: 50px;
+  color: gray;
 }
 
-.footer_icon a {
-  font-size: 25px;
-  margin-top: 68px;
-  color:#9d9d9d;
-  text-decoration:none;
+.container{
+  margin-top: 15px;
+  color: #fff;
+  width: 100%;
 }
 
-.footer_icon a:hover {
-  font-size: 25px;
-  margin-top: 68px;
-  color:#fff;
-  text-decoration:none;
+.fa-twitter {
+    color: #4099FF;
 }
 
-.footer_icon li {
-  display:inline;
-  margin-left: 0.6em;
-  margin-right: 0.6em;
+.fa-facebook {
+    color: #3B5998;
+}
+
+.fa-youtube-play {
+    color: #e52d27;
+}
+
+.fa-rss {
+    color: #FF6600;
+}
+
+.fa-vine {
+    color: #00a478;
+}
+
+.fa-flickr {
+    color: #ff0084;
+}
+
+.fa-twitch {
+    color: #6441A5;
+}
+
+.fa-linkedin {
+    color: #007bb6;
+}
+
+.fa-github-alt {
+    color: #85f557;
+}
+
+.fa-thumbs-o-up {
+    color: #f5f357;
+}
+
+.fa {
+    opacity: 0.7;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.fa:hover{
+    opacity: 1;
+    transition: 1s;
+    -webkit-transition: 1s;
 }

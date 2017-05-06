@@ -4,7 +4,7 @@
 
       <div class="row">
 
-        <div class="job-bar col-md-10 col-xs-12">
+        <div class="job-bar col-md-10 col-md-offset-1 col-xs-12">
           <span class="job-bar-txt">找人做</span>
           <span class="job-bar-btn dropdown btn-group clearfix">
             <button class="btn btn-default dropdown-toggle" type="button color: #636262" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -19,7 +19,7 @@
         </div>
 
         <% @resumes.each do |resume| %>
-        <div class="job-box col-md-10 col-xs-12">
+        <div class="job-box col-md-10 col-md-offset-1 col-xs-12">
           <div class="job-box-top">
             <div class="col-md-4"><%= link_to(resume.title, resume_path(resume)) %></div>
             <div class="col-md-2"><i class="fa fa-calendar"></i><%= resume.created_at.strftime("%Y%m%d") %></div>

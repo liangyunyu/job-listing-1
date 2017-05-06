@@ -1,10 +1,10 @@
 <div class="content">
-  <div class="container">
+  <div class="container-fluid">
     <div class="job">
 
       <div class="row">
 
-        <div class="job-bar col-md-10 col-xs-12">
+        <div class="job-bar col-md-10 col-md-offset-1 col-xs-12">
           <span class="job-bar-txt">找事做</span>
           <span class="job-bar-btn dropdown btn-group clearfix">
             <button class="btn btn-default dropdown-toggle" type="button color: #636262" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -19,7 +19,8 @@
         </div>
 
         <% @jobs.each do |job| %>
-        <div class="job-box col-md-10 col-xs-12">
+        <div >
+        <div class="job-box col-md-10 col-md-offset-1 colcol-xs-12">
           <div class="job-box-top">
             <div class="col-md-4"><%= link_to(job.title, job_path(job)) %></div>
             <div class="col-md-2"><i class="fa fa-calendar"></i><%= job.created_at.strftime("%Y%m%d") %></div>

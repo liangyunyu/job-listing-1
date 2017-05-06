@@ -1,19 +1,25 @@
 <div class="content">
   <div class="container">
-    <div class="pull-right dropdown clearfix">
-      <button class="btn btn-default dropdown-toggle" type="button color: #636262" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        排序 <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-        <li><%= link_to("金额从大到小", resumes_path(:order => "by_lower_bound")) %></li>
-        <li><%= link_to("金额从小到大", resumes_path(order: "by_upper_bound")) %></li>
-        <li><%= link_to("最新发布时间", resumes_path) %></li>
-      </ul>
-    </div>
+    <div class="job">
 
-    <div class="row">
-      <% @resumes.each do |resume| %>
-      <div class="col-md-10 col-xs-12 job-box">
+      <div class="row">
+
+        <div class="job-bar col-md-10 col-xs-12">
+          <span class="job-bar-txt">找人做</span>
+          <span class="job-bar-btn dropdown btn-group clearfix">
+            <button class="btn btn-default dropdown-toggle" type="button color: #636262" id="dropdownMenuDivider" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              排序 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+              <li><%= link_to("金额从大到小", resumes_path(:order => "by_lower_bound")) %></li>
+              <li><%= link_to("金额从小到大", resumes_path(order: "by_upper_bound")) %></li>
+              <li><%= link_to("最新发布时间", resumes_path) %></li>
+            </ul>
+          </span>
+        </div>
+
+        <% @resumes.each do |resume| %>
+        <div class="job-box col-md-10 col-xs-12">
           <div class="job-box-top">
             <div class="col-md-4"><%= link_to(resume.title, resume_path(resume)) %></div>
             <div class="col-md-2"><i class="fa fa-calendar"></i><%= resume.created_at.strftime("%Y%m%d") %></div>
@@ -22,16 +28,17 @@
             <div class="col-md-2"><i class="fa fa-jpy"></i><%= resume.wage %><%= resume.wage_unit %></div>
           </div>
           <div class="job-box-mid">
-            <div class="col-md-4"><i class="fa fa-users" aria-hidden="true"></i>公司/个人：<%= resume.name %></div>
-            <div class="col-md-8"><i class="fa fa-address-book" aria-hidden="true"></i>联系方式：<%= resume.contact %></div>
-            <div class="col-md-12"><i class="fa fa-tasks" aria-hidden="true"></i>工作意向：<%= resume.content %></div>
-            <div class="col-md-12"><i class="fa fa-trophy" aria-hidden="true"></i>技能专长：<%= resume.description %></div>
+            <div class="col-md-6"><i class="fa fa-users"></i>公司/个人：<%= resume.name %></div>
+            <div class="col-md-6"><i class="fa fa-address-book"></i>联系方式：<%= resume.contact %></div>
+            <div class="col-md-12"><i class="fa fa-tasks"></i>工作意向：<%= resume.content %></div>
+            <div class="col-md-12"><i class="fa fa-trophy"></i>技能专长：<%= resume.description %></div>
           </div>
           <div class="job-box-bot">
           </div>
-      </div>
-      <% end %>
-    </div>
+        </div>
+        <% end %>
 
+      </div>
+    </div>
   </div>
 </div>

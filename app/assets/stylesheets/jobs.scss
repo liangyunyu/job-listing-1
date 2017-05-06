@@ -2,144 +2,145 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.content {
-  margin-top: 7em;
-  margin-bottom: 5em;
-  color: #636262;
-  padding-left: 5em;
-  padding-right: 5em;
-  font-family: 'PT Sans', sans-serif;
-}
 
-.table {
-  padding-left: 5em;
-  padding-right: 5em;
-}
-
-.table_admin {
-  margin-right: 10em;
-}
-
-.job_vacancy {
-  font-size: 1.15em;
-  padding-left: 2em;
-  padding-top: 1.3em;
-
-}
-
-.job_details_1 {
-  font-size: 1em;
-  padding-left: 2em;
-  padding-top: 1em;
-}
-
-.job_details_2 {
-  font-size: 1em;
-  padding-left: 2em;
-  padding-bottom: 1em;
-  border-bottom: 1px solid lightgrey;
-}
-
-.job_section_title {
-  text-align: center;
-  font-size: 2em;
-}
-
-.job_section_description {
-  font-size: 1.2em;
-  padding-left: 5em;
-  padding-right: 5em;
-  text-align: justify;
-  line-height: 2em;
-}
-
-.back {
-  font-size: 1.2em;
-  padding-left: 5em;
-}
-
-.btn-1 {
-  margin:1.5em auto;
-  text-align: center;
-  font-size: 1.5em;
-}
-
-.job_section_editnew {
-  padding: 0em 3.5em 0.8em 3.5em;
-}
-
-.job_section_resume {
-  padding: 2em 3.5em 0.8em 3.5em;
-  font-size: 1.2em;
-}
-
-.sidebar {
-  color: #808080
-
-}
-
-.job_desc {
-  text-align: justify;
-  line-height: 2em;
-}
-
-.footer_icon_1 a {
-  font-size: 33px;
-  color:#fff;
-  text-decoration:none;
-  margin-top: 62px;
-
-}
-
-.footer_icon_1 a:hover {
-  font-size: 33px;
-  color:#9d9d9d;
-  text-decoration:none;
-  margin-top: 62px;
-
-  &:after {
-    text-decoration: none;
-  }
-
-}
-
-.footer_icon_1 li {
-  display:inline;
-  margin-top: 62px;
-  font-size: 33px;
-  text-decoration: none;
-}
-
-/*===== Register & Login Page =====*/
-
-.bg_bg {
-  height: 780px;
-  background-image: url("http://ww1.sinaimg.cn/large/006tNbRwgy1fey3mqed0oj31hc0zkgvg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom center;
-}
-
-.bg_bg_box {
-  background: #fff;
-  margin-top: 6em;
-  margin-bottom: 2em;
-  padding: 3em 4em;
-  border: 1px solid #9e9e9e;
-  form {
-    max-width: 35em;
-    padding: 0 2.5em 3.214em;
-    margin: 0 auto;
-    h2 {
-      margin-bottom: 30px;
-    }
-  }
-}
-
-.loginmodal-container input[type=text]:hover, input[type=password]:hover {
-  border: 1px solid #b9b9b9;
-  border-top: 1px solid #a0a0a0;
-  -moz-box-shadow: inset 0 2px 3px rgba(0,0,0,0.2);
-  -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0,0.2);
-  box-shadow: inset 0 2px 3px rgba(0,0,0,0.2);
-}
+// .content {
+//   margin-top: 7em;
+//   margin-bottom: 5em;
+//   color: #636262;
+//   padding-left: 5em;
+//   padding-right: 5em;
+//   font-family: 'PT Sans', sans-serif;
+// }
+//
+// .table {
+//   padding-left: 5em;
+//   padding-right: 5em;
+// }
+//
+// .table_admin {
+//   margin-right: 10em;
+// }
+//
+// .job_vacancy {
+//   font-size: 1.15em;
+//   padding-left: 2em;
+//   padding-top: 1.3em;
+//
+// }
+//
+// .job_details_1 {
+//   font-size: 1em;
+//   padding-left: 2em;
+//   padding-top: 1em;
+// }
+//
+// .job_details_2 {
+//   font-size: 1em;
+//   padding-left: 2em;
+//   padding-bottom: 1em;
+//   border-bottom: 1px solid lightgrey;
+// }
+//
+// .job_section_title {
+//   text-align: center;
+//   font-size: 2em;
+// }
+//
+// .job_section_description {
+//   font-size: 1.2em;
+//   padding-left: 5em;
+//   padding-right: 5em;
+//   text-align: justify;
+//   line-height: 2em;
+// }
+//
+// .back {
+//   font-size: 1.2em;
+//   padding-left: 5em;
+// }
+//
+// .btn-1 {
+//   margin:1.5em auto;
+//   text-align: center;
+//   font-size: 1.5em;
+// }
+//
+// .job_section_editnew {
+//   padding: 0em 3.5em 0.8em 3.5em;
+// }
+//
+// .job_section_resume {
+//   padding: 2em 3.5em 0.8em 3.5em;
+//   font-size: 1.2em;
+// }
+//
+// .sidebar {
+//   color: #808080
+//
+// }
+//
+// .job_desc {
+//   text-align: justify;
+//   line-height: 2em;
+// }
+//
+// .footer_icon_1 a {
+//   font-size: 33px;
+//   color:#fff;
+//   text-decoration:none;
+//   margin-top: 62px;
+//
+// }
+//
+// .footer_icon_1 a:hover {
+//   font-size: 33px;
+//   color:#9d9d9d;
+//   text-decoration:none;
+//   margin-top: 62px;
+//
+//   &:after {
+//     text-decoration: none;
+//   }
+//
+// }
+//
+// .footer_icon_1 li {
+//   display:inline;
+//   margin-top: 62px;
+//   font-size: 33px;
+//   text-decoration: none;
+// }
+//
+// /*===== Register & Login Page =====*/
+//
+// .bg_bg {
+//   height: 780px;
+//   background-image: url("http://ww1.sinaimg.cn/large/006tNbRwgy1fey3mqed0oj31hc0zkgvg.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: bottom center;
+// }
+//
+// .bg_bg_box {
+//   background: #fff;
+//   margin-top: 6em;
+//   margin-bottom: 2em;
+//   padding: 3em 4em;
+//   border: 1px solid #9e9e9e;
+//   form {
+//     max-width: 35em;
+//     padding: 0 2.5em 3.214em;
+//     margin: 0 auto;
+//     h2 {
+//       margin-bottom: 30px;
+//     }
+//   }
+// }
+//
+// .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+//   border: 1px solid #b9b9b9;
+//   border-top: 1px solid #a0a0a0;
+//   -moz-box-shadow: inset 0 2px 3px rgba(0,0,0,0.2);
+//   -webkit-box-shadow: inset 0 2px 3px rgba(0,0,0,0.2);
+//   box-shadow: inset 0 2px 3px rgba(0,0,0,0.2);
+// }

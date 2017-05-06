@@ -11,29 +11,26 @@
       </ul>
     </div>
 
-    <div class="table col-centered">
-      <tbody>
-        <% @resumes.each do |resume| %>
-        <div class="job_vacancy row"><p><%= link_to(resume.title, resume_path(resume)) %></p></div>
-        <div class="job_details_1 row">
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-arrow-right" aria-hidden="true"></i>意向类型：  <%= resume.category %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-location-arrow" aria-hidden="true"></i>工作地点：  <%= resume.location %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-calendar" aria-hidden="true"></i>发布时间：  <%= resume.created_at.strftime("%Y年%m月%d日") %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-users" aria-hidden="true"></i>公司/个人：  <%= resume.name %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-address-book" aria-hidden="true"></i>联系方式：  <%= resume.contact %></p></div>
-          <div class="col-sm-4 col-xs-6"><p><i class="fa fa-jpy" aria-hidden="true"></i>期望报酬：  <%= resume.wage %><%= resume.wage_unit %></p></div>
-        </div>
-        <div class="job_details_2 row">
-          <div class="col-sm-12 col-xs-6"><p><i class="fa fa-tasks" aria-hidden="true"></i>工作意向：  <%= resume.content %></p></div>
-          <div class="col-sm-12 col-xs-6"><p><i class="fa fa-trophy" aria-hidden="true"></i>技能特长：  <%= resume.description %></p></div>
-          <div class="col-md-4 col-md-offset-8">
+    <div class="row">
+      <% @resumes.each do |resume| %>
+      <div class="col-md-10 col-xs-12 job-box">
+          <div class="job-box-top">
+            <div class="col-md-4"><%= link_to(resume.title, resume_path(resume)) %></div>
+            <div class="col-md-2"><i class="fa fa-calendar"></i><%= resume.created_at.strftime("%Y%m%d") %></div>
+            <div class="col-md-2"><i class="fa fa-arrow-right"></i><%= resume.category %></div>
+            <div class="col-md-2"><i class="fa fa-location-arrow"></i><%= resume.location %></div>
+            <div class="col-md-2"><i class="fa fa-jpy"></i><%= resume.wage %><%= resume.wage_unit %></div>
           </div>
-        </div>
-        <% end %>
-      </tbody>
-    </div>
-    <div class="text-center" style="padding-top: 1.5em">
-      <%= will_paginate(@resumes, renderer: BootstrapPagination::Rails) %>
+          <div class="job-box-mid">
+            <div class="col-md-4"><i class="fa fa-users" aria-hidden="true"></i>公司/个人：<%= resume.name %></div>
+            <div class="col-md-8"><i class="fa fa-address-book" aria-hidden="true"></i>联系方式：<%= resume.contact %></div>
+            <div class="col-md-12"><i class="fa fa-tasks" aria-hidden="true"></i>工作意向：<%= resume.content %></div>
+            <div class="col-md-12"><i class="fa fa-trophy" aria-hidden="true"></i>技能专长：<%= resume.description %></div>
+          </div>
+          <div class="job-box-bot">
+          </div>
+      </div>
+      <% end %>
     </div>
 
   </div>
